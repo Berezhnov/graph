@@ -1,0 +1,75 @@
+@import "grid";
+
+.app {
+  font-family: helvetica, arial, sans-serif;
+}
+
+body
+{
+  margin: 0;
+}
+
+.diagram-background, .diagram-container
+{
+  width: 100%;
+  height: 100%;
+  position: absolute;
+}
+
+.diagram-background
+{
+  z-index: 5;
+  background-size: 40px 40px;
+  background-image: linear-gradient(
+                  90deg
+          ,#eee 1px,transparent 0),linear-gradient(
+                  180deg
+          ,#eee 1px,transparent 0);
+  background-position: right 20px bottom 20px;
+  background-color: #fff;
+}
+
+.diagram-container
+{
+  z-index: 10;
+}
+
+.custom-node
+{
+  border-radius: .5px;
+  border: 1px solid grey;
+  background: #fff;
+  padding: 3px;
+  padding-right: 10px;
+
+  .node-image
+  {
+    width: 30px;
+    height: 30px;
+    margin-right: 10px;
+  }
+
+  .node-label
+  {
+    color: #aaa;
+    font-size: 11px;
+  }
+
+  .node-name
+  {
+    font-size: 14px;
+  }
+
+  .fa-globe-americas
+  {
+    font-size: 25px;
+    color: rgb(51, 51, 51);
+    width: 15px;
+    height: 15px;
+    position: absolute;
+    left: -10px;
+    top: -10px;
+    z-index: 100;
+    cursor: pointer;
+  }
+}
