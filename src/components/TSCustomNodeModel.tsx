@@ -8,6 +8,7 @@ export interface TSCustomNodeModelOptions extends BaseModelOptions {
 	name?: string;
 	resourceType?: string;
 	accessLevel?: string;
+	onNodeMessagesOpen ?: Function
 }
 
 export class TSCustomNodeModel extends NodeModel<DefaultNodeModelGenerics> {
@@ -17,6 +18,7 @@ export class TSCustomNodeModel extends NodeModel<DefaultNodeModelGenerics> {
 	name: string;
 	resourceType : string;
 	accessLevel : string;
+	onNodeMessagesOpen : Function;
 
 
 	constructor(options: TSCustomNodeModelOptions = {}) {
@@ -29,6 +31,7 @@ export class TSCustomNodeModel extends NodeModel<DefaultNodeModelGenerics> {
 		this.name = options.name || 'empty';
 		this.resourceType = options.resourceType || 'empty';
 		this.accessLevel = options.accessLevel || 'empty';
+		this.onNodeMessagesOpen = options.onNodeMessagesOpen;
 
 		// setup an in and out port
 		this.addPort(
@@ -53,6 +56,7 @@ export class TSCustomNodeModel extends NodeModel<DefaultNodeModelGenerics> {
 			name: this.name,
 			resourceType: this.resourceType,
 			accessLevel: this.accessLevel,
+			onNodeMessagesOpen: this.onNodeMessagesOpen,
 		};
 	}
 
@@ -63,5 +67,6 @@ export class TSCustomNodeModel extends NodeModel<DefaultNodeModelGenerics> {
 		this.name = event.data.name;
 		this.resourceType = event.data.resourceType;
 		this.accessLevel = event.data.accessLevel;
+		this.onNodeMessagesOpen = event.data.onNodeMessagesOpen;
 	}
 }

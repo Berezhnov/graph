@@ -53,7 +53,16 @@ export class TSCustomNodeWidget extends React.Component<TSCustomNodeWidgetProps,
 						<div className="node-name">{this.props.node.name}</div>
 					</div>
 				</div>
-				<div className="custom-node-color" style={{ backgroundColor: this.props.node.color }} />
+				<hr className="node-messages-link-hr"/>
+				<a onClick={() => this.props.node.onNodeMessagesOpen(this.props.node)} className={`node-messages-link ${this.props.node.resourceType === 'AWS::Lambda::Function' ? 'have-messages' : ''}`}>
+					<i className="material-icons">speaker_notes</i>
+					Discuss
+					{
+						this.props.node.resourceType === 'AWS::Lambda::Function' &&
+							<span className="ml-1">(5)</span>
+					}
+				</a>
+
 			</div>
 		);
 	}

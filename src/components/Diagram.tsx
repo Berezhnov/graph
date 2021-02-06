@@ -14,7 +14,8 @@ import {TSCustomNodeModel} from "./TSCustomNodeModel";
 import TSCustomNodeFactory from "./TSCustomNodeFactory";
 
 interface IDiagramProps {
-	graphData : any
+	graphData : any,
+	onNodeMessagesOpen : Function
 }
 
 interface IDiagramState {
@@ -51,6 +52,7 @@ class Diagram extends React.Component<IDiagramProps, IDiagramState> {
 				name : nodeData.logicalId,
 				resourceType : nodeData.resourceType,
 				accessLevel : nodeData.accessLevel,
+				onNodeMessagesOpen : this.props.onNodeMessagesOpen
 			});
 
 			//(node as any).addOutPort('Out');
